@@ -29,6 +29,7 @@ public class UserViewModel extends AndroidViewModel {
     private UserServiceI repository;
     private MutableLiveData<String> responseLiveDataToken;
     private MutableLiveData<User> responseLiveUser;
+    private MutableLiveData<Boolean> responseLiveRegister;
     private SharedPreferences mPreferences;
     public UserViewModel(@NonNull Application application) {
         super(application);
@@ -36,6 +37,7 @@ public class UserViewModel extends AndroidViewModel {
 
         responseLiveDataToken = repository.getLiveDataToken();
         responseLiveUser = repository.getLiveDataUser();
+        responseLiveRegister = repository.getLiveDataRegister();
         this.mPreferences = PreferencesProvider.providePreferences();
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -78,6 +80,9 @@ public class UserViewModel extends AndroidViewModel {
     }
     public LiveData<User> getResponseLiveDataUser() {
         return this.responseLiveUser;
+    }
+    public LiveData<Boolean> getResponseLiveDataRegister() {
+        return this.responseLiveRegister;
     }
 
 }

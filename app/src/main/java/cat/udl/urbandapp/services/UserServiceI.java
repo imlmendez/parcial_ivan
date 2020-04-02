@@ -30,4 +30,6 @@ public interface UserServiceI {
 
     MutableLiveData<User> getLiveDataUser();
 
+    MutableLiveData<Boolean> getLiveDataRegister();
+
 }
